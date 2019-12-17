@@ -34,6 +34,17 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
+
+
+        <service android:name=".RemoteService"
+            android:enabled="true"
+                 android:exported="true"
+        >
+            <intent-filter>
+                <action android:name="com.stepyen.testdemo.aidl.action"></action>
+            </intent-filter>
+
+        </service>
     </application>
 
 </manifest>
