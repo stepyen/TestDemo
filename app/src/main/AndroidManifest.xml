@@ -35,6 +35,9 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ContentProviderActivity">
+        </activity>
+
 
         <service android:name=".RemoteService"
                  android:enabled="true"
