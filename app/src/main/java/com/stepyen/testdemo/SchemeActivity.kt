@@ -1,9 +1,11 @@
 package com.stepyen.testdemo
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_scheme.*
 import java.net.URI
 
@@ -17,41 +19,80 @@ import java.net.URI
 class SchemeActivity : AppCompatActivity() {
 
     companion object{
-        val TAG = "SchemeActivity"
+        const val TAG = "SchemeActivityTAG"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scheme)
-        Log.d(TAG, "onCreate")
-        output()
+
+        Log.i(TAG, "onCreate")
+        Log.i(TAG, "onCreate Intent : ${IntentLogUtil.getIntentAllInfo(intent)}")
+
     }
+
+    override fun onAttachFragment(fragment: Fragment) {
+        super.onAttachFragment(fragment)
+        Log.i(TAG, "onAttachFragment: ")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i(TAG, "onStart: ")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i(TAG, "onResume: ")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i(TAG, "onPause: ")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG, "onStop: ")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(TAG, "onDestroy: ")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i(TAG, "onRestart: ")
+    }
+
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        Log.i(TAG, "onConfigurationChanged: ")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
+        Log.i(TAG, "onRestoreInstanceState: ")
+    }
+
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        Log.i(TAG, "onSaveInstanceState: ")
+    }
+
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        Log.d(TAG, "onNewIntent")
-        output()
-    }
+        Log.i(TAG, "onNewIntent")
 
-    private fun output() {
-        intent?.run {
-            data?.run {
-                val sb = StringBuilder()
-                    .append("获取到的信息如下：")
-                    .append("uri:   ${data.toString()}\n")
-                    .append("sheme: $scheme\n")
-                    .append("authority: $authority\n")
-                    .append("host: $host\n")
-                    .append("port: $port\n")
-                    .append("path: $path\n")
-                    .append("query: $query\n")
-                    .append("fragment: $fragment\n")
-                    .toString()
-
-                Log.d(TAG, sb)
-
-                tv_info.text = sb
-            }
+        intent?.let {
+            Log.i(TAG, "onNewIntent Intent : ${IntentLogUtil.getIntentAllInfo(it)}")
         }
+
+
     }
+
 }

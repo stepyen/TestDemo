@@ -9,22 +9,42 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity" android:label="MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+
+
+
+
         </activity>
         <activity android:name=".SchemeActivity"
-                  android:launchMode="singleTask">
+                  android:label="SchemeActivity"
+                  android:launchMode="singleTask"
+        >
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="stepyen"></data>
-                <data android:host="host.com"></data>
-                <data android:path="/record/path"></data>
+                <data android:scheme="babybus.character"
+                />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="stepyen"
+                      android:host="host.com"
+                      android:path="/record/path"/>
+            </intent-filter>
+
+
+
+
         </activity>
 
         <activity android:name=".ProcessActivity"
