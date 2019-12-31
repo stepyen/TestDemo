@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -41,6 +42,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.RECORD_AUDIO), 123)
+
+        startActivity(Intent(this@MainActivity, SchemeActivity::class.java))
+        Handler().postDelayed(Runnable {
+            finish()
+        },1000)
 
     }
 

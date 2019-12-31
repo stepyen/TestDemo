@@ -39,6 +39,7 @@ class SchemeActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         Log.i(TAG, "onStart: ")
+        Log.i(TAG, "onStart Intent : ${IntentLogUtil.getIntentAllInfo(intent)}")
     }
 
     override fun onResume() {
@@ -64,6 +65,7 @@ class SchemeActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         Log.i(TAG, "onRestart: ")
+        Log.i(TAG, "onRestart Intent : ${IntentLogUtil.getIntentAllInfo(intent)}")
     }
 
 

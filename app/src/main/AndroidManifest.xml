@@ -22,25 +22,19 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
-
-
-
-
-        </activity>
-        <activity android:name=".SchemeActivity"
-                  android:label="SchemeActivity"
-        >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="stepyen"
-                      android:host="host.com"
-                      android:path="/record/path"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="characters"/>
+
             </intent-filter>
-
-
-
-
+        </activity>
+        <activity android:name=".SchemeActivity"
+                  android:label="SchemeActivity"
+                  android:launchMode="singleTask"
+        >
         </activity>
 
         <activity android:name=".ProcessActivity"
@@ -64,6 +58,8 @@
             </intent-filter>
 
         </service>
+
     </application>
+
 
 </manifest>
