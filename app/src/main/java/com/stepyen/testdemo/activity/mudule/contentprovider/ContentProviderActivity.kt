@@ -1,4 +1,4 @@
-package com.stepyen.testdemo
+package com.stepyen.testdemo.activity.mudule.contentprovider
 
 import android.content.ContentValues
 import android.net.Uri
@@ -7,6 +7,8 @@ import android.os.Handler
 import android.os.Message
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.stepyen.testdemo.R
+import com.stepyen.testdemo.StudentContentObserver
 import kotlinx.android.synthetic.main.activity_content_provider.*
 
 /**
@@ -46,7 +48,10 @@ class ContentProviderActivity : AppCompatActivity() {
 
         val contentResolver = contentResolver;
 
-        contentResolver.registerContentObserver(STUDENT_URI, true, StudentContentObserver(handler))
+        contentResolver.registerContentObserver(
+            STUDENT_URI, true,
+            StudentContentObserver(handler)
+        )
 
 
         btn_insert.setOnClickListener {

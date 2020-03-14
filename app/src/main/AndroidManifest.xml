@@ -1,65 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.stepyen.testdemo">
+    package="com.stepyen.testdemo">
 
     <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
     <application
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-    >
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity"
-                  android:label="MainActivity"
-                  android:launchMode="singleTask"
-        >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+        <activity
+            android:name=".MainActivity"
+            android:label="MainActivity"
+            >
 
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-
-                <data android:scheme="characters"/>
-
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".SchemeActivity"
-                  android:label="SchemeActivity"
-                  android:launchMode="singleTask"
-        >
-        </activity>
 
-        <activity android:name=".ProcessActivity"
-                  android:launchMode="singleTask">
+        </activity>
+        <activity
+            android:name="com.stepyen.testdemo.activity.function.scheme.SchemeActivity"
+            android:label="SchemeActivity"
+            >
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="stepyen" />
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.stepyen.testdemo.activity.function.scheme.SchemeSingleTaskActivity"
+            android:label="SchemeSingleTaskActivity"
+            android:launchMode="singleTask"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="stepyen" />
+
             </intent-filter>
         </activity>
 
-        <activity android:name=".ContentProviderActivity">
+
+        <activity android:name=".activity.test.JavaTestActivity"></activity>
+        <activity
+            android:name=".ProcessActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
+        <activity android:name=".activity.mudule.contentprovider.ContentProviderActivity"></activity>
 
-        <service android:name=".RemoteService"
-                 android:enabled="true"
-                 android:exported="true"
-        >
+
+        <service
+            android:name=".RemoteService"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.stepyen.testdemo.aidl.action"></action>
             </intent-filter>
 
         </service>
-
     </application>
-
 
 </manifest>
