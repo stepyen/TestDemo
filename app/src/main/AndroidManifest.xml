@@ -74,6 +74,38 @@
             </intent-filter>
 
         </service>
+
+
+
+<!--        共享空间 开始-->
+        <activity android:name=".activity.sharespace.ShareSpaceActivity"></activity>>
+
+        <activity android:name=".activity.sharespace.NoDisplayActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.NoDisplay"
+            >
+
+        </activity>
+
+
+        <service android:name=".activity.sharespace.ShareSpaceService"
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="com.stepyen.testdemo.activity.sharespace.ShareSpaceService"></action>
+            </intent-filter>
+        </service>-
+
+        <provider
+            android:authorities="com.stepyen.testdemo.ShareSpaceContentProvider"
+            android:exported="true"
+            android:name=".activity.sharespace.ShareSpaceContentProvider"></provider>
+
+        <!--        共享空间 结束-->
+
+
     </application>
 
 </manifest>
